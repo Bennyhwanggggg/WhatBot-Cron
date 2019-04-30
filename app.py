@@ -54,6 +54,7 @@ class DataTool:
 def main(url='https://whatbot9900backend.herokuapp.com/'):
 
     data_tool = DataTool()
+    next_day = random.randint(1, 4)
 
     start_time = time.time()
     while True:
@@ -63,9 +64,10 @@ def main(url='https://whatbot9900backend.herokuapp.com/'):
         if not time_diff % (60*29):  # Sends a get request every 29 min
             result = requests.get(url)
             print(result)
-        if not time_diff % (60*60*24):
+        if not time_diff % (60*60*24*next_day):
             print('Time to generate data')
             data_tool.start()
+            next_day = random.randint(1, 4)
 
 
 if __name__ == '__main__':
