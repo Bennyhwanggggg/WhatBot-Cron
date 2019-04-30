@@ -63,6 +63,9 @@ def main(url='https://whatbot9900backend.herokuapp.com/'):
         if not time_diff % (60*29):  # Sends a get request every 29 min
             result = requests.get(url)
             print(result)
+        if not time_diff % (60*60*24):
+            print('Time to generate data')
+            data_tool.start()
 
 
 if __name__ == '__main__':
